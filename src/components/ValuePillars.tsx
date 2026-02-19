@@ -33,17 +33,17 @@ const pillars = [
 
 const ValuePillars = () => {
   return (
-    <section id="beneficios" className="py-20 md:py-28">
+    <section id="beneficios" className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center mb-14">
-          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-ice-deep mb-3">
+          <span className="inline-block text-xs font-semibold font-sans tracking-widest uppercase text-primary mb-3">
             ¿Por qué elegirnos?
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-4">
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-primary mb-4">
             La diferencia está en los detalles
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
+          <p className="text-muted-foreground font-sans max-w-xl mx-auto">
             Combinamos la tecnología más avanzada con un protocolo de atención personalizado para darte la mejor experiencia.
           </p>
         </div>
@@ -55,34 +55,38 @@ const ValuePillars = () => {
               key={title}
               className={`relative rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 ${
                 featured
-                  ? "gradient-ice border border-ice-dark/30"
-                  : "bg-secondary/50 border border-border hover:border-ice/50"
+                  ? "bg-primary border border-primary/80"
+                  : "bg-champagne/60 border border-border hover:border-primary/40"
               }`}
               style={{ boxShadow: featured ? "var(--shadow-card)" : undefined }}
             >
               {featured && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold bg-ice-deep text-background tracking-wide">
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold font-sans bg-brand-dark text-primary-foreground tracking-wide">
                   MÁS POPULAR
                 </span>
               )}
 
               <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 ${
-                featured ? "bg-white/60" : "gradient-ice"
+                featured ? "bg-white/20" : "bg-primary/12 border border-primary/20"
               }`}>
-                <Icon size={26} className="text-ice-deep" strokeWidth={1.75} />
+                <Icon size={26} className={featured ? "text-primary-foreground" : "text-primary"} strokeWidth={1.75} />
               </div>
 
-              <span className={`inline-block text-xs font-bold px-3 py-1 rounded-full mb-3 ${
-                featured ? "bg-white/50 text-ice-deep" : "bg-ice-light text-ice-deep"
+              <span className={`inline-block text-xs font-bold font-sans px-3 py-1 rounded-full mb-3 ${
+                featured ? "bg-white/20 text-primary-foreground" : "bg-primary/10 text-primary"
               }`}>
                 {badge}
               </span>
 
-              <h3 className="text-xl font-bold text-foreground mb-1">{title}</h3>
-              <p className={`text-sm font-semibold mb-3 ${featured ? "text-ice-deep" : "text-ice-dark"}`}>
+              <h3 className={`text-xl font-serif font-bold mb-1 ${featured ? "text-primary-foreground" : "text-primary"}`}>
+                {title}
+              </h3>
+              <p className={`text-sm font-semibold font-sans mb-3 ${featured ? "text-primary-foreground/80" : "text-brand-dark"}`}>
                 {subtitle}
               </p>
-              <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
+              <p className={`text-sm font-sans leading-relaxed ${featured ? "text-primary-foreground/75" : "text-muted-foreground"}`}>
+                {description}
+              </p>
             </div>
           ))}
         </div>

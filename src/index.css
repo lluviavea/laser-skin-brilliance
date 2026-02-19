@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,60 +6,62 @@
 
 @layer base {
   :root {
-    /* Laser Skin Design System */
-    --background: 0 0% 100%;
-    --foreground: 220 20% 12%;
+    /* Laser Skin – Green Moss Boutique Design System */
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 20% 12%;
+    /* Backgrounds */
+    --background: 90 20% 97%;         /* #F9FBF9 – Linen White */
+    --foreground: 150 10% 25%;        /* #3A453F – Deep Carbon */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 12%;
+    --card: 40 25% 89%;               /* #E8E2D6 – Champagne/Cream */
+    --card-foreground: 150 10% 25%;
 
-    /* Ice Blue primary */
-    --primary: 207 100% 82%;
-    --primary-foreground: 207 60% 20%;
+    --popover: 90 20% 97%;
+    --popover-foreground: 150 10% 25%;
 
-    --secondary: 210 20% 96%;
-    --secondary-foreground: 220 20% 12%;
+    /* Brand Green Moss */
+    --primary: 150 11% 44%;           /* #6B8476 – Organic Moss Green */
+    --primary-foreground: 90 20% 97%; /* Linen White */
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 16% 55%;
+    /* Soft Olive secondary */
+    --secondary: 148 14% 65%;         /* #9DB0A5 – Soft Olive Green */
+    --secondary-foreground: 150 10% 25%;
 
-    --accent: 207 100% 82%;
-    --accent-foreground: 207 60% 20%;
+    --muted: 40 20% 92%;              /* Cream-ish muted */
+    --muted-foreground: 150 8% 48%;   /* Mid grey-green */
+
+    --accent: 40 25% 89%;             /* Champagne accent */
+    --accent-foreground: 150 11% 44%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 30% 91%;
-    --input: 214 30% 91%;
-    --ring: 207 100% 72%;
+    --border: 150 10% 82%;
+    --input: 150 10% 82%;
+    --ring: 150 11% 44%;
 
     --radius: 0.75rem;
 
-    /* Custom tokens */
-    --ice-blue: 207 100% 82%;
-    --ice-blue-light: 207 100% 93%;
-    --ice-blue-dark: 207 80% 65%;
-    --ice-blue-deep: 207 70% 45%;
+    /* Custom brand tokens */
+    --brand: 150 11% 44%;             /* #6B8476 */
+    --brand-light: 148 14% 65%;       /* #9DB0A5 */
+    --brand-dark: 150 15% 35%;        /* Darker moss */
+    --champagne: 40 25% 89%;          /* #E8E2D6 */
+    --champagne-dark: 40 20% 80%;
 
-    --silver: 210 15% 92%;
-    --silver-dark: 210 10% 80%;
-
-    --text-primary: 220 20% 12%;
-    --text-muted: 215 16% 55%;
+    --text-primary: 150 10% 25%;      /* #3A453F */
+    --text-muted: 150 8% 48%;
 
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100% / 0.95) 0%, hsl(207 100% 96% / 0.85) 100%);
-    --gradient-ice: linear-gradient(135deg, hsl(207 100% 93%), hsl(207 100% 82%));
-    --gradient-cta: linear-gradient(135deg, hsl(207 100% 72%), hsl(207 80% 60%));
-    --gradient-section: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 30% 98%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(90 20% 97% / 0.97) 0%, hsl(90 15% 94% / 0.88) 50%, hsl(90 20% 97% / 0.2) 100%);
+    --gradient-brand: linear-gradient(135deg, hsl(148 14% 65%), hsl(150 11% 44%));
+    --gradient-cta: linear-gradient(135deg, hsl(150 11% 44%), hsl(150 15% 35%));
+    --gradient-section: linear-gradient(180deg, hsl(90 20% 97%) 0%, hsl(40 20% 94%) 100%);
+    --gradient-champagne: linear-gradient(135deg, hsl(40 25% 93%), hsl(40 25% 89%));
 
     /* Shadows */
-    --shadow-card: 0 4px 24px -4px hsl(207 100% 82% / 0.25);
-    --shadow-cta: 0 8px 32px -4px hsl(207 100% 60% / 0.4);
-    --shadow-navbar: 0 1px 20px -2px hsl(220 20% 12% / 0.08);
+    --shadow-card: 0 4px 24px -4px hsl(150 11% 44% / 0.18);
+    --shadow-cta: 0 8px 32px -4px hsl(150 11% 44% / 0.35);
+    --shadow-navbar: 0 1px 20px -2px hsl(150 10% 25% / 0.08);
     --shadow-float: 0 8px 32px hsl(142 70% 40% / 0.4);
 
     --sidebar-background: 0 0% 98%;
@@ -85,29 +87,42 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Playfair Display', Georgia, serif;
     font-weight: 700;
-    letter-spacing: -0.02em;
+    color: hsl(var(--primary));
+    letter-spacing: -0.01em;
   }
 }
 
 @layer utilities {
-  .gradient-ice {
-    background: var(--gradient-ice);
+  .gradient-brand {
+    background: var(--gradient-brand);
+  }
+  .gradient-cta {
+    background: var(--gradient-cta);
+  }
+  .gradient-champagne {
+    background: var(--gradient-champagne);
   }
   .gradient-hero-overlay {
     background: var(--gradient-hero);
   }
-  .shadow-card-ice {
+  .shadow-card-brand {
     box-shadow: var(--shadow-card);
   }
   .shadow-cta {
     box-shadow: var(--shadow-cta);
   }
-  .text-gradient-ice {
+  .text-gradient-brand {
     background: var(--gradient-cta);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+  .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  .font-sans {
+    font-family: 'Montserrat', sans-serif;
   }
 }

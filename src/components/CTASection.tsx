@@ -8,36 +8,32 @@ const WhatsAppIcon = () => (
 
 const CTASection = () => {
   return (
-    <section className="py-20 md:py-28">
+    <section className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4 sm:px-6">
         <div
-          className="rounded-3xl overflow-hidden relative text-center px-8 py-16 md:py-20"
-          style={{ background: "var(--gradient-ice)" }}
+          className="rounded-3xl overflow-hidden relative text-center px-8 py-16 md:py-20 bg-primary"
         >
           {/* Decorative circles */}
-          <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/20 -translate-y-1/3 translate-x-1/4" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-white/15 translate-y-1/3 -translate-x-1/4" />
+          <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/10 -translate-y-1/3 translate-x-1/4" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-white/8 translate-y-1/3 -translate-x-1/4" />
 
           <div className="relative">
-            <span className="inline-block text-xs font-bold tracking-widest uppercase text-ice-deep mb-4">
+            <span className="inline-block text-xs font-bold font-sans tracking-widest uppercase text-primary-foreground/70 mb-4">
               Oferta de Bienvenida
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-4">
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-primary-foreground mb-4">
               Tu primera evaluación es{" "}
-              <span className="underline decoration-ice-dark decoration-4">gratis</span>
+              <span className="italic underline decoration-primary-foreground/50 decoration-4">gratis</span>
             </h2>
-            <p className="text-muted-foreground max-w-md mx-auto mb-8">
+            <p className="text-primary-foreground/75 font-sans max-w-md mx-auto mb-8">
               Agenda hoy y recibe un diagnóstico personalizado sin costo. Cupo limitado.
             </p>
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-base font-bold text-background transition-all duration-300 hover:scale-105 active:scale-95"
-              style={{
-                background: "hsl(var(--foreground))",
-                boxShadow: "0 8px 32px hsl(220 20% 12% / 0.3)",
-              }}
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-lg text-base font-bold font-sans text-primary bg-primary-foreground transition-all duration-300 hover:scale-105 active:scale-95 hover:bg-champagne"
+              style={{ boxShadow: "0 8px 32px hsl(150 10% 25% / 0.3)" }}
             >
               <WhatsAppIcon />
               Agendar Evaluación Gratuita
