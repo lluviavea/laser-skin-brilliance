@@ -17,32 +17,36 @@ const Hero = () => {
         style={{ backgroundImage: `url(${heroBg})` }}
       />
       {/* Overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/20 md:from-white/90 md:via-white/70 md:to-transparent" />
-      {/* Ice shimmer top */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-ice to-transparent opacity-60" />
+      <div className="absolute inset-0 gradient-hero-overlay" />
+
+      {/* Subtle top border accent */}
+      <div className="absolute top-0 left-0 right-0 h-0.5 bg-primary opacity-40" />
 
       <div className="relative container mx-auto px-4 sm:px-6 pt-24 pb-16 md:pt-32 md:pb-24">
         <div className="max-w-xl lg:max-w-2xl">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-ice bg-ice-light/50 mb-6 animate-fade-up" style={{ animationDelay: "0.1s", opacity: 0 }}>
-            <span className="w-2 h-2 rounded-full bg-ice-dark animate-pulse-soft" />
-            <span className="text-xs font-semibold text-ice-deep tracking-wide uppercase">
+          <div
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 mb-6 animate-fade-up"
+            style={{ animationDelay: "0.1s", opacity: 0 }}
+          >
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse-soft" />
+            <span className="text-xs font-semibold font-sans text-primary tracking-wide uppercase">
               Tecnología Diodo en Frío · Culiacán
             </span>
           </div>
 
           {/* Headline */}
           <h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-[1.1] mb-5 animate-fade-up"
+            className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold leading-[1.1] mb-5 animate-fade-up text-primary"
             style={{ animationDelay: "0.2s", opacity: 0 }}
           >
             Piel suave para siempre,{" "}
-            <span className="text-gradient-ice">sin dolor</span> y en tiempo récord.
+            <span className="italic text-brand-dark">sin dolor</span> y en tiempo récord.
           </h1>
 
           {/* Subtitle */}
           <p
-            className="text-base sm:text-lg text-muted-foreground mb-8 leading-relaxed max-w-lg animate-fade-up"
+            className="text-base sm:text-lg text-muted-foreground font-sans mb-8 leading-relaxed max-w-lg animate-fade-up"
             style={{ animationDelay: "0.35s", opacity: 0 }}
           >
             Olvídate de la cera con nuestra tecnología de Diodo en Frío. Resultados visibles desde la primera sesión en Culiacán.
@@ -57,16 +61,13 @@ const Hero = () => {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-7 py-4 rounded-full text-base font-bold text-ice-deep transition-all duration-300 hover:scale-105 active:scale-95"
-              style={{
-                background: "var(--gradient-cta)",
-                boxShadow: "var(--shadow-cta)",
-              }}
+              className="inline-flex items-center gap-3 px-7 py-4 rounded-lg text-base font-bold font-sans text-primary-foreground bg-primary transition-all duration-300 hover:bg-brand-dark hover:scale-105 active:scale-95"
+              style={{ boxShadow: "var(--shadow-cta)" }}
             >
               <WhatsAppIcon />
               Agendar Evaluación Gratuita por WhatsApp
             </a>
-            <p className="mt-3 text-xs text-muted-foreground">
+            <p className="mt-3 text-xs text-muted-foreground font-sans">
               Sin compromiso · Respuesta en menos de 1 hora
             </p>
           </div>

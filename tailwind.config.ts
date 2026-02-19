@@ -16,6 +16,8 @@ export default {
       fontFamily: {
         sans: ["Montserrat", "sans-serif"],
         montserrat: ["Montserrat", "sans-serif"],
+        serif: ["Playfair Display", "Georgia", "serif"],
+        playfair: ["Playfair Display", "Georgia", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -51,15 +53,14 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        ice: {
-          DEFAULT: "hsl(var(--ice-blue))",
-          light: "hsl(var(--ice-blue-light))",
-          dark: "hsl(var(--ice-blue-dark))",
-          deep: "hsl(var(--ice-blue-deep))",
+        brand: {
+          DEFAULT: "hsl(var(--brand))",
+          light: "hsl(var(--brand-light))",
+          dark: "hsl(var(--brand-dark))",
         },
-        silver: {
-          DEFAULT: "hsl(var(--silver))",
-          dark: "hsl(var(--silver-dark))",
+        champagne: {
+          DEFAULT: "hsl(var(--champagne))",
+          dark: "hsl(var(--champagne-dark))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
