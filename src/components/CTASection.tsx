@@ -1,4 +1,4 @@
-const WHATSAPP_URL = "https://wa.me/526671234567?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20evaluaci%C3%B3n%20gratuita";
+const WHATSAPP_URL = "https://wa.me/526674734646?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20evaluaci%C3%B3n%20gratuita.";
 
 const WhatsAppIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
