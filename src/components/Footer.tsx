@@ -1,13 +1,19 @@
 import { MapPin, Phone, Instagram, Facebook } from "lucide-react";
 import logo from "@/assets/logo.png";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const Footer = () => {
+  const { ref, isVisible } = useScrollAnimation<HTMLElement>({ threshold: 0.1 });
+
   return (
-    <footer className="bg-foreground text-primary-foreground">
+    <footer ref={ref} className="bg-foreground text-primary-foreground">
       <div className="container mx-auto px-4 sm:px-6 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
           {/* Brand */}
-          <div>
+          <div
+            className={`reveal-left ${isVisible ? "visible" : ""}`}
+            style={{ transitionDelay: "0ms" }}
+          >
             <a href="#" className="flex items-center gap-2 mb-4">
               <img
                 src={logo}
@@ -21,7 +27,10 @@ const Footer = () => {
           </div>
 
           {/* Contact */}
-          <div>
+          <div
+            className={`reveal ${isVisible ? "visible" : ""}`}
+            style={{ transitionDelay: "120ms" }}
+          >
             <h4 className="font-bold font-sans text-primary-foreground mb-4 text-sm tracking-wide uppercase">Contacto</h4>
             <ul className="space-y-3 text-sm text-primary-foreground/70 font-sans">
               <li className="flex items-start gap-2.5">
@@ -58,7 +67,10 @@ const Footer = () => {
           </div>
 
           {/* Social */}
-          <div>
+          <div
+            className={`reveal-right ${isVisible ? "visible" : ""}`}
+            style={{ transitionDelay: "240ms" }}
+          >
             <h4 className="font-bold font-sans text-primary-foreground mb-4 text-sm tracking-wide uppercase">Síguenos</h4>
             <div className="flex gap-3 mb-5">
               <a
@@ -80,7 +92,10 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-sans text-primary-foreground/40">
+        <div
+          className={`border-t border-primary-foreground/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-sans text-primary-foreground/40 reveal ${isVisible ? "visible" : ""}`}
+          style={{ transitionDelay: "360ms" }}
+        >
           <p>© 2024 Laser Skin. Todos los derechos reservados.</p>
           <p>Culiacán, Sinaloa · México</p>
         </div>
