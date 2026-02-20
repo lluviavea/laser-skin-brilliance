@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const faqs = [
   {
@@ -39,12 +40,18 @@ const faqs = [
 ];
 
 const FAQSection = () => {
+  const header = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+  const list = useScrollAnimation<HTMLDivElement>({ threshold: 0.05 });
+
   return (
     <section id="faq" className="py-20 md:py-28 bg-champagne/30">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-3xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12">
+          <div
+            ref={header.ref}
+            className={`text-center mb-12 reveal ${header.isVisible ? "visible" : ""}`}
+          >
             <span className="inline-block text-xs font-semibold font-sans tracking-widest uppercase text-primary mb-3">
               Preguntas Frecuentes
             </span>
@@ -57,22 +64,25 @@ const FAQSection = () => {
           </div>
 
           {/* Accordion */}
-          <Accordion type="single" collapsible className="space-y-3">
-            {faqs.map((faq, index) => (
-              <AccordionItem
-                key={index}
-                value={`faq-${index}`}
-                className="bg-background border border-border rounded-xl px-2 shadow-sm data-[state=open]:border-primary/50 data-[state=open]:shadow-card-brand transition-all duration-200"
-              >
-                <AccordionTrigger className="px-4 py-5 text-left font-semibold font-sans text-foreground hover:no-underline hover:text-primary text-sm sm:text-base">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="px-4 pb-5 text-sm font-sans text-muted-foreground leading-relaxed">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          <div ref={list.ref}>
+            <Accordion type="single" collapsible className="space-y-3">
+              {faqs.map((faq, index) => (
+                <AccordionItem
+                  key={index}
+                  value={`faq-${index}`}
+                  className={`bg-background border border-border rounded-xl px-2 shadow-sm data-[state=open]:border-primary/50 data-[state=open]:shadow-card-brand transition-all duration-200 reveal ${list.isVisible ? "visible" : ""}`}
+                  style={{ transitionDelay: list.isVisible ? `${index * 70}ms` : "0ms" }}
+                >
+                  <AccordionTrigger className="px-4 py-5 text-left font-semibold font-sans text-foreground hover:no-underline hover:text-primary text-sm sm:text-base">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="px-4 pb-5 text-sm font-sans text-muted-foreground leading-relaxed">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
         </div>
       </div>
     </section>

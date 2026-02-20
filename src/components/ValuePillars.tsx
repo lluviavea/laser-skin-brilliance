@@ -1,4 +1,5 @@
 import { Snowflake, Sparkles, Clock } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const pillars = [
   {
@@ -8,7 +9,7 @@ const pillars = [
     description:
       "Nuestro cabezal de enfriamiento Sub-Zero enfría la piel a -4°C durante el tratamiento, eliminando por completo las molestias. La experiencia más cómoda del mercado.",
     badge: "Sin dolor",
-    delay: "0.1s",
+    delay: "0ms",
   },
   {
     icon: Sparkles,
@@ -17,7 +18,7 @@ const pillars = [
     description:
       "La tecnología Diodo 808nm actúa con precisión sobre el folículo sin importar tu tono de piel. Resultados clínicamente probados desde la primera sesión.",
     badge: "Todos los fototipos",
-    delay: "0.2s",
+    delay: "120ms",
     featured: true,
   },
   {
@@ -27,16 +28,22 @@ const pillars = [
     description:
       "Zonas completas como piernas o axila en menos de 20 minutos. Ideal para tu ritmo de vida. Agenda en WhatsApp y llega en el horario que mejor te funcione.",
     badge: "20 min",
-    delay: "0.3s",
+    delay: "240ms",
   },
 ];
 
 const ValuePillars = () => {
+  const header = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+  const cards = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+
   return (
     <section id="beneficios" className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center mb-14">
+        <div
+          ref={header.ref}
+          className={`text-center mb-14 reveal ${header.isVisible ? "visible" : ""}`}
+        >
           <span className="inline-block text-xs font-semibold font-sans tracking-widest uppercase text-primary mb-3">
             ¿Por qué elegirnos?
           </span>
@@ -49,16 +56,19 @@ const ValuePillars = () => {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div ref={cards.ref} className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {pillars.map(({ icon: Icon, title, subtitle, description, badge, delay, featured }) => (
             <div
               key={title}
-              className={`relative rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 ${
+              className={`relative rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 reveal ${cards.isVisible ? "visible" : ""} ${
                 featured
                   ? "bg-primary border border-primary/80"
                   : "bg-champagne/60 border border-border hover:border-primary/40"
               }`}
-              style={{ boxShadow: featured ? "var(--shadow-card)" : undefined }}
+              style={{
+                boxShadow: featured ? "var(--shadow-card)" : undefined,
+                transitionDelay: cards.isVisible ? delay : "0ms",
+              }}
             >
               {featured && (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold font-sans bg-brand-dark text-primary-foreground tracking-wide">
